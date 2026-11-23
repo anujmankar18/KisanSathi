@@ -1,0 +1,98 @@
+
+### 1. Test Farmer Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "rahul.test@example.com",
+  "password": "RahulTest123"
+}
+
+### 2. Register a Farmer
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Rahul Test",
+  "email": "rahul.test@example.com",
+  "phone": "9876543211",
+  "password": "RahulTest123",
+  "role": "farmer"
+}
+
+### 3. Register a Service Provider
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Provider Test",
+  "email": "provider.test@example.com",
+  "phone": "9876543212",
+  "password": "ProviderTest123",
+  "role": "provider"
+}
+
+### 4. Admin Login
+POST http://localhost:5000/api/admin/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "anujmankar"
+}
+
+### 5. Get All Service Providers
+GET http://localhost:5000/api/admin/providers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkzNjQ3MzM3LCJleHAiOjE3OTM2NTQ1Mzd9.mfXT2QUXOxKu8EgDTPMIFELPGhM11Ijq7RyHW3Ib3Bo
+
+### 6. Approve a Service Provider
+PATCH http://localhost:5000/api/admin/providers/6ae88e6458cfe6d726732146/approval
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkzNjQ3MzM3LCJleHAiOjE3OTM2NTQ1Mzd9.mfXT2QUXOxKu8EgDTPMIFELPGhM11Ijq7RyHW3Ib3Bo
+Content-Type: application/json
+
+{
+  "isApproved": true
+}
+
+### 7. Reject or Revoke Provider Approval
+PATCH http://localhost:5000/api/admin/providers/PROVIDER_ID/approval
+Authorization: Bearer YOUR_ADMIN_TOKEN
+Content-Type: application/json
+
+{
+  "isApproved": false
+}
+
+### 8. Get All Bookings (Admin)
+GET http://localhost:5000/api/admin/bookings
+Authorization: Bearer YOUR_ADMIN_TOKEN
+
+
+
+### Test Provider Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "gm604471@gmail.com",
+  "password": "anujmankar"
+}
+
+### Approve Provider Test
+PATCH http://localhost:5000/api/admin/providers/6ae8e68e900d19563a909f10/approval
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzkzNjQ3MzM3LCJleHAiOjE3OTM2NTQ1Mzd9.mfXT2QUXOxKu8EgDTPMIFELPGhM11Ijq7RyHW3Ib3Bo
+Content-Type: application/json
+
+{
+  "isApproved": true
+}
+
+### Test Approved Provider Login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "provider.test@example.com",
+  "password": "ProviderTest123"
+}
+
